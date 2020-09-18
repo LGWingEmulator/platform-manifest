@@ -2,14 +2,17 @@
 <manifest>
 
   <remote  name="aosp"
-           fetch=".."
+	  fetch="https://android.googlesource.com"
            review="https://android-review.googlesource.com/" />
-  <default revision="emu-master-dev"
+  <remote name="github"
+	  fetch="https://github.com/LGWingEmulator"
+	  />
+   <default revision="emu-master-dev"
            remote="aosp"
            sync-j="4" />
 
-  <project path="build" name="platform/build" />
-  <project path="tools/buildSrc" name="platform/tools/buildSrc">
+  <project path="build" name="platform/build" remote="aosp" revision="0984226dbac1a947ad34490e0647cf7e5c5e6d14"/>
+  <project path="tools/buildSrc" name="platform/tools/buildSrc" remote="aosp" revision="9377f5fc656188dcc42bc0b7f6ce53ab90dfca05" >
     <copyfile src="base/build.gradle"      dest="tools/build.gradle" />
     <copyfile src="base/settings.gradle"   dest="tools/settings.gradle" />
     <copyfile src="base/gradlew"           dest="tools/gradlew" />
@@ -17,87 +20,87 @@
     <copyfile src="base/gradle.properties" dest="tools/gradle.properties" />
   </project>
 
-  <project path="device/generic/goldfish-opengl" name="device/generic/goldfish-opengl" revision="master"/>
-  <project path="device/generic/vulkan-cereal" name="device/generic/vulkan-cereal" revision="master"/>
-  <project path="external/angle" name="platform/external/angle" />
-  <project path="external/adt-infra" name="platform/external/adt-infra" />
-  <project path="external/astc-codec" name="platform/external/astc-codec" revision="master" />
-  <project path="external/bluetooth/glib" name="platform/external/bluetooth/glib" />
-  <project path="external/boringssl" name="platform/external/boringssl" revision="master" clone-depth="1"/>
-  <project path="external/cares" name="platform/external/c-ares" />
-  <project path="external/curl" name="platform/external/curl" />
-  <project path="external/deqp" name="platform/external/deqp" revision="master" />
-  <project path="external/ffmpeg" name="platform/external/ffmpeg" />
-  <project path="external/googletest" name="platform/external/googletest" revision="master" />
-  <project path="external/google-benchmark" name="platform/external/google-benchmark" revision="db1632fadc79df388a2a7248157c965ee40248a1" />
-  <project path="external/google-breakpad" name="platform/external/google-breakpad" />
-  <project path="external/grpc" name="platform/external/grpc-grpc" />
-  <project path="external/libffi" name="platform/external/libffi" />
-  <project path="external/libvpx" name="platform/external/libvpx" />
-  <project path="external/libyuv" name="platform/external/libyuv" revision="master"/>
-  <project path="external/libpng" name="platform/external/libpng" />
-  <project path="external/lz4" name="platform/external/lz4" />
-  <project path="external/openssl" name="platform/external/openssl" />
-  <project path="external/pixman" name="platform/external/pixman" />
-  <project path="external/protobuf" name="platform/external/protobuf" />
-  <project path="external/qemu" name="platform/external/qemu">
+  <project path="device/generic/goldfish-opengl" name="device/generic/goldfish-opengl" revision="b20147eb106ee02afa36d6285a2772d646320e91" remote="aosp" />
+  <project path="device/generic/vulkan-cereal" name="device/generic/vulkan-cereal" revision="ea978cef5a41c292dd9bd0ce9bf08648e76ca030" remote="aosp" />
+  <project path="external/angle" name="platform/external/angle"  remote="aosp"  revision="c37c696b94bd7ddecc12a2c3192f5e48eae7842e" />
+  <project path="external/adt-infra" name="platform/external/adt-infra"  remote="aosp"  revision="4a3cf16b6505d7103d19c6d6114e3e7ac21799a2" />
+  <project path="external/astc-codec" name="platform/external/astc-codec" revision="17ae36822a8084f45ae51f9031e81f8318254f33"  remote="aosp" />
+  <project path="external/bluetooth/glib" name="platform/external/bluetooth/glib"  remote="aosp"  revision="1143b9918eab068401b604eb11c3f651f4e38b25" />
+  <project path="external/boringssl" name="platform/external/boringssl" revision="ebdc40672df0793508b18df7ebe03a258617ad87" clone-depth="1" remote="aosp" />
+  <project path="external/cares" name="platform/external/c-ares"  remote="aosp"  revision="bdf653f0f9cbcccd64c43630929db8cfde337091" />
+  <project path="external/curl" name="platform/external/curl"  remote="aosp"  revision="1da4b04273638c8afe6f88bd7a7ccfb693640773" />
+  <project path="external/deqp" name="platform/external/deqp" revision="393a348317e8e94e06a4f17ed130d6c2d30839b3"  remote="aosp" />
+  <project path="external/ffmpeg" name="platform/external/ffmpeg"  remote="aosp" revision="5c6f92dd1b16590153367ce79ed9b098cace354f" />
+  <project path="external/googletest" name="platform/external/googletest" revision="739d078a704963f0d19345bc6a3491b8b8232b9c"  remote="aosp" />
+  <project path="external/google-benchmark" name="platform/external/google-benchmark" revision="db1632fadc79df388a2a7248157c965ee40248a1"  remote="aosp" />
+  <project path="external/google-breakpad" name="platform/external/google-breakpad"  remote="aosp"  revision="a1414818b9f9810a3b45f1f55d9c00f5116ec7d9" />
+  <project path="external/grpc" name="platform/external/grpc-grpc"  remote="aosp"  revision="b864fad91e669ea0c8472e147999278623757762" />
+  <project path="external/libffi" name="platform/external/libffi"  remote="aosp"  revision="30bc66eb2043d8434e94f29beda87001e58c2a34" />
+  <project path="external/libvpx" name="platform/external/libvpx"  remote="aosp"  revision="62332cf39b0302e240acb10ed78d61d5ea282a39" />
+  <project path="external/libyuv" name="platform/external/libyuv" remote="aosp"  revision="89330bce50a357e32dd12e28363cd7dc64f1924c" />
+  <project path="external/libpng" name="platform/external/libpng"  remote="aosp"  revision="5d19b1bb0f5694f2ae47b3cc2ccfeb571764b439" />
+  <project path="external/lz4" name="platform/external/lz4"  remote="aosp"  revision="1a184fdeb99f4cc11b774ac5b0b824b38105ec6c" />
+  <project path="external/openssl" name="platform/external/openssl"  remote="aosp"  revision="8953c287cf742a22411f75fab28a33772240e44f" />
+  <project path="external/pixman" name="platform/external/pixman"  remote="aosp"  revision="07a4f67e39d921a0a44a09e2ee67449dcfd66614" />
+  <project path="external/protobuf" name="platform/external/protobuf"  remote="aosp"  revision="ca15ad7fb89a626c0d2a98240b11a2523727f9be" />
+  <project path="external/qemu" name="external-qemu" remote="github" revision="master"  >
     <copyfile src="android/vscode/emu.code-workspace" dest="emu.code-workspace"/>
   </project>
-  <project path="external/qt" name="platform/external/qt" />
-  <project path="external/sdl2" name="platform/external/sdl2" />
-  <project path="external/swiftshader" name="platform/external/swiftshader"/>
-  <project path="external/tinyobjloader" name="platform/external/tinyobjloader" revision="master"/>
-  <project path="external/virglrenderer" name="platform/external/virglrenderer" revision="crosvm-master"/>
-  <project path="external/nasm" name="platform/external/nasm" />
-  <project path="external/wpa_supplicant_8" name="platform/external/wpa_supplicant_8" />
-  <project path="external/zlib" name="platform/external/zlib" />
-  <project path="frameworks/native" name="platform/frameworks/native" revision="lollipop-release" />
-  <project path="prebuilts/android-emulator" name="platform/prebuilts/android-emulator" />
-  <project path="prebuilts/android-emulator-build/archive" name="platform/prebuilts/android-emulator-build/archive" clone-depth="1" />
-  <project path="prebuilts/android-emulator-build/common" name="platform/prebuilts/android-emulator-build/common" clone-depth="1" />
-  <project path="prebuilts/android-emulator-build/curl" name="platform/prebuilts/android-emulator-build/curl" clone-depth="1" />
-  <project path="prebuilts/android-emulator-build/mesa" name="platform/prebuilts/android-emulator-build/mesa" clone-depth="1" />
-  <project path="prebuilts/android-emulator-build/mesa-deps" name="platform/prebuilts/android-emulator-build/mesa-deps" clone-depth="1" />
-  <project path="prebuilts/android-emulator-build/protobuf" name="platform/prebuilts/android-emulator-build/protobuf" clone-depth="1" />
-  <project path="prebuilts/android-emulator-build/qemu-android-deps" name="platform/prebuilts/android-emulator-build/qemu-android-deps" clone-depth="1" />
-  <project path="prebuilts/android-emulator-build/qt" name="platform/prebuilts/android-emulator-build/qt" clone-depth="1" />
+  <project path="external/qt" name="platform/external/qt"  remote="aosp"  revision="989b587a7ee85e4afde01b866aae3457bc9122c7" />
+  <project path="external/sdl2" name="platform/external/sdl2"  remote="aosp"  revision="a3ceb7dc2b5ec536915c83bf7b547002786fd8be" />
+  <project path="external/swiftshader" name="platform/external/swiftshader" remote="aosp"  revision="9759b180cf5b6687afc1f231b1b9fa230da1b261" />
+  <project path="external/tinyobjloader" name="platform/external/tinyobjloader" revision="d16a940067fbc191364fc1d3e2a2d907209c9320" remote="aosp" />
+  <project path="external/virglrenderer" name="platform/external/virglrenderer" revision="f0c2fba5827abb3634b1992855264d7fe990b89d" remote="aosp" />
+  <project path="external/nasm" name="platform/external/nasm"  remote="aosp"  revision="4a1f910150bed6d8afd9c7f89a437ca7060cdaee" />
+  <project path="external/wpa_supplicant_8" name="platform/external/wpa_supplicant_8"  remote="aosp"  revision="b756d2873566bb6dbd11715c6f2352ef1f1046c7" />
+  <project path="external/zlib" name="platform/external/zlib"  remote="aosp"  revision="7656f9eff09cc38244978773777ee64b7b31155d" />
+  <project path="frameworks/native" name="platform/frameworks/native" revision="9094ee238458bf1e8a9e8335fd824acc4963d7f4"  remote="aosp" />
+  <project path="prebuilts/android-emulator" name="platform/prebuilts/android-emulator"  remote="aosp"  revision="fb26612eb84576adb974fe7f18a49d263072116f" />
+  <project path="prebuilts/android-emulator-build/archive" name="platform/prebuilts/android-emulator-build/archive" clone-depth="1"  remote="aosp"  revision="7f1da17fe2503e4897d65d02df06486590cafce8" />
+  <project path="prebuilts/android-emulator-build/common" name="platform/prebuilts/android-emulator-build/common" clone-depth="1"  remote="aosp"  revision="2b1b9c223bca1a8dc9c0249192e61453d267d741" />
+  <project path="prebuilts/android-emulator-build/curl" name="platform/prebuilts/android-emulator-build/curl" clone-depth="1"  remote="aosp"  revision="95f56cc6a903e335d2e90ecce6b4db8d88491bf1" />
+  <project path="prebuilts/android-emulator-build/mesa" name="platform/prebuilts/android-emulator-build/mesa" clone-depth="1"  remote="aosp"  revision="be7c00f399b415511d73308f0af0c0310512aced" />
+  <project path="prebuilts/android-emulator-build/mesa-deps" name="platform/prebuilts/android-emulator-build/mesa-deps" clone-depth="1"  remote="aosp"  revision="17837fdb1889014fa01cbbbda56afc9b6034815f" />
+  <project path="prebuilts/android-emulator-build/protobuf" name="platform/prebuilts/android-emulator-build/protobuf" clone-depth="1"  remote="aosp"  revision="8e2a5472dd374e6c971d30eb3d00898a8c1a25c8" />
+  <project path="prebuilts/android-emulator-build/qemu-android-deps" name="platform/prebuilts/android-emulator-build/qemu-android-deps" clone-depth="1"  remote="aosp"  revision="e3e1083f445fb89dc899639a2b3c4254c7daf489" />
+  <project path="prebuilts/android-emulator-build/qt" name="platform/prebuilts/android-emulator-build/qt" clone-depth="1"  remote="aosp"  revision="405886e92215a0ef28ed9e48019e2d12e47b1f0c" />
 
-  <project path="prebuilts/clang/host/darwin-x86" name="platform/prebuilts/clang/host/darwin-x86" clone-depth="1" revision="master" />
-  <project path="prebuilts/clang/host/linux-x86" name="platform/prebuilts/clang/host/linux-x86" clone-depth="1" revision="master" />
-  <project path="prebuilts/clang/host/windows-x86" name="platform/prebuilts/clang/host/windows-x86" clone-depth="1" revision="master" />
-  <project path="prebuilts/cmake/darwin-x86" name="platform/prebuilts/cmake/darwin-x86" clone-depth="1" />
-  <project path="prebuilts/cmake/linux-x86" name="platform/prebuilts/cmake/linux-x86" clone-depth="1" />
-  <project path="prebuilts/cmake/windows-x86" name="platform/prebuilts/cmake/windows-x86" clone-depth="1" />
-  <project path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" clone-depth="1" revision="master" />
-  <project path="prebuilts/ninja/darwin-x86" name="platform/prebuilts/ninja/darwin-x86" clone-depth="1" />
-  <project path="prebuilts/ninja/linux-x86" name="platform/prebuilts/ninja/linux-x86" clone-depth="1" />
-  <project path="prebuilts/ninja/windows-x86" name="platform/prebuilts/ninja/windows-x86" clone-depth="1" />
-  <project path="prebuilts/qemu-kernel" name="platform/prebuilts/qemu-kernel" clone-depth="1" revision="master" />
-  <project path="prebuilts/tools" name="platform/prebuilts/tools" clone-depth="1" revision="master" />
-  <project path="sdk" name="platform/sdk" />
-  <project path="tools/emulator" name="platform/tools/emulator" />
-  <project path="tools/acloud" name="platform/tools/acloud" revision="master" />
-  <project path="tools/external/gradle" name="platform/tools/external/gradle"/>
-  <project path="tools/gradle" name="platform/tools/gradle" />
+  <project path="prebuilts/clang/host/darwin-x86" name="platform/prebuilts/clang/host/darwin-x86" clone-depth="1"  remote="aosp"  revision="ba4bf5f6f4b8c1ff33ce7188a52f07d514d9fb71" />
+  <project path="prebuilts/clang/host/linux-x86" name="platform/prebuilts/clang/host/linux-x86" clone-depth="1"  remote="aosp"  revision="ab0d33f38cde1018896119c02392fadc1b97fa15" />
+  <project path="prebuilts/clang/host/windows-x86" name="platform/prebuilts/clang/host/windows-x86" clone-depth="1"   remote="aosp"  revision="99f10f014632410b39033b6a7b2d43320c072677" />
+  <project path="prebuilts/cmake/darwin-x86" name="platform/prebuilts/cmake/darwin-x86" clone-depth="1"  remote="aosp"  revision="1d4c2556dbbf86c502cf70f3bf339612c0aa8577" />
+  <project path="prebuilts/cmake/linux-x86" name="platform/prebuilts/cmake/linux-x86" clone-depth="1"  remote="aosp"  revision="40dcb6f55bd2e8731e3e4f1a1721f7ff0fb83cb1" />
+  <project path="prebuilts/cmake/windows-x86" name="platform/prebuilts/cmake/windows-x86" clone-depth="1"  remote="aosp"  revision="d7c516df2fff90b7583ea2c4b4e7a3bff5cf2492" />
+  <project path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" clone-depth="1" revision="4533a4d0efa68949dc3c0dfec00214feaddd6c7b"  remote="aosp" />
+  <project path="prebuilts/ninja/darwin-x86" name="platform/prebuilts/ninja/darwin-x86" clone-depth="1"  remote="aosp" revision="8e110eda03f1e908cad557286b8a80e961ff910e"  />
+  <project path="prebuilts/ninja/linux-x86" name="platform/prebuilts/ninja/linux-x86" clone-depth="1"  remote="aosp"  revision="7ef4cb95e1ed4305e99f03a8e8ad28d26134a45b" />
+  <project path="prebuilts/ninja/windows-x86" name="platform/prebuilts/ninja/windows-x86" clone-depth="1"  remote="aosp"  revision="b88e85c90e260cfed1d5130499b8dfd7bb9dc02a" />
+  <project path="prebuilts/qemu-kernel" name="platform/prebuilts/qemu-kernel" clone-depth="1"  remote="aosp" revision="973acaa875014fd42374d7f8bfc9525621c984ae"  />
+  <project path="prebuilts/tools" name="platform/prebuilts/tools" clone-depth="1" revision="45ed27566d14569252657c70979fc238ed254755"  remote="aosp" />
+  <project path="sdk" name="platform/sdk"  remote="aosp"  revision="315fb5b8a73df3f88c79a034968a87b461833a83" />
+  <project path="tools/emulator" name="platform/tools/emulator"  remote="aosp"  revision="93a7010407cecb1df00a398b341ca3194e39c05c" />
+  <project path="tools/acloud" name="platform/tools/acloud" revision="315aba6ec884a3475a73637e60d7bbebdb4f32a3"  remote="aosp" />
+  <project path="tools/external/gradle" name="platform/tools/external/gradle" remote="aosp"  revision="eed722e5b870766798670fb406ca30e57f90a3f8" />
+  <project path="tools/gradle" name="platform/tools/gradle"  remote="aosp"  revision="ee598f8798fdfda273aec644a258f37fb5033556" />
 
-  <project path="prebuilts/rust" name="platform/prebuilts/rust" clone-depth="1" revision="master" />
-  <project path="external/rust/crates/bitflags" name="platform/external/rust/crates/bitflags" revision="master" />
-  <project path="external/rust/crates/byteorder" name="platform/external/rust/crates/byteorder" revision="master" />
-  <project path="external/rust/crates/libc" name="platform/external/rust/crates/libc" revision="master" />
-  <project path="external/rust/crates/proc-macro2" name="platform/external/rust/crates/proc-macro2" revision="master" />
-  <project path="external/rust/crates/quote" name="platform/external/rust/crates/quote" revision="master" />
-  <project path="external/rust/crates/remain" name="platform/external/rust/crates/remain" revision="master" />
-  <project path="external/rust/crates/syn" name="platform/external/rust/crates/syn" revision="master" />
-  <project path="external/rust/crates/unicode-xid" name="platform/external/rust/crates/unicode-xid" revision="master" />
+  <project path="prebuilts/rust" name="platform/prebuilts/rust" clone-depth="1" remote="aosp"  revision="d803dd208b4ecd722b75ef6083d30142a6520832" />
+  <project path="external/rust/crates/bitflags" name="platform/external/rust/crates/bitflags" revision="efaa09589f5e508e9dd325dfd83b66f7d80304bd"  remote="aosp" />
+  <project path="external/rust/crates/byteorder" name="platform/external/rust/crates/byteorder" revision="38c3e288c6aae8e4fa4682a40f85bcf97eaa8f8e"  remote="aosp" />
+  <project path="external/rust/crates/libc" name="platform/external/rust/crates/libc" revision="0df69f4c2b9a8d069afa0559e8f80898315c79b8"  remote="aosp" />
+  <project path="external/rust/crates/proc-macro2" name="platform/external/rust/crates/proc-macro2" revision="5e5d730bc546f5c8adeadc5a189ab263d6ec8ec7"  remote="aosp" />
+  <project path="external/rust/crates/quote" name="platform/external/rust/crates/quote" revision="a8f5053a432071ef92731b9946bec07f12099ec8"  remote="aosp" />
+  <project path="external/rust/crates/remain" name="platform/external/rust/crates/remain" revision="5846f731f46c552ac3a2dc8b38dea64df8aca81a"  remote="aosp" />
+  <project path="external/rust/crates/syn" name="platform/external/rust/crates/syn" revision="218e269f27cf34c525b7acc48614d69fe0ad1f74"  remote="aosp" />
+  <project path="external/rust/crates/unicode-xid" name="platform/external/rust/crates/unicode-xid" revision="0159bcef0a07e9b3d87f4c3a3679b5c9b2f7c261"  remote="aosp" />
 
-  <project name="platform/external/adhd" path="third_party/adhd" revision="crosvm-master"/>
-  <project name="platform/external/crosvm" path="platform/crosvm" revision="crosvm-master"/>
-  <project name="platform/external/libepoxy" path="third_party/libepoxy" revision="crosvm-master"/>
-  <project name="platform/external/minigbm" path="third_party/minigbm" revision="crosvm-master"/>
+  <project name="platform/external/adhd" path="third_party/adhd" revision="a3e81aa1cef605f2a1b3deb4dcf3e992ec1d602e" remote="aosp" />
+  <project name="platform/external/crosvm" path="platform/crosvm" revision="663072a60425a907bbbb2f25aa55f26e1eb01295" remote="aosp" />
+  <project name="platform/external/libepoxy" path="third_party/libepoxy" revision="199985a9b74aa5610a2ce75be2997e7a272dd9fe" remote="aosp" />
+  <project name="platform/external/minigbm" path="third_party/minigbm" revision="82e37a6c196d089140bf71a83dc0f6042d22ffd2" remote="aosp" />
 
-  <project name="platform/external/minijail" path="aosp/external/minijail" revision="master"/>
-  <project name="platform/external/libcap" path="external/libcap" revision="master"/>
-  <project name="platform/external/libdrm" path="external/libdrm" revision="master"/>
+  <project name="platform/external/minijail" path="aosp/external/minijail" revision="84ffabcf488bf0935f00930a9a23bbce1f34d79f" remote="aosp" />
+  <project name="platform/external/libcap" path="external/libcap" revision="2db20a0a41de7cf42cc78f4c8a9b0ef2ed47f6b7" remote="aosp" />
+  <project name="platform/external/libdrm" path="external/libdrm" revision="e1e5fd5572088342ab7ba66694411b08a3ad7c6e" remote="aosp" />
 
-  <project name="device/google/cuttlefish_vmm" path="device/google/cuttlefish_vmm" revision="master"/>
+  <project name="device/google/cuttlefish_vmm" path="device/google/cuttlefish_vmm" revision="0a5450761dab2363334319e64b6190bea3f2d21c" remote="aosp" />
 </manifest>
